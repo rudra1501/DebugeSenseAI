@@ -7,7 +7,6 @@ def classify_error(parsed_data):
     haystack = f"{error_type}\n{logs}\n{stack_trace}".lower()
     error_type_lower = error_type.lower()
 
-    # NETWORK_ERROR
     if any(
         k in haystack
         for k in [
@@ -27,7 +26,6 @@ def classify_error(parsed_data):
     ):
         return "NETWORK_ERROR"
 
-    # AUTH_ERROR
     if any(
         k in haystack
         for k in [
@@ -44,7 +42,6 @@ def classify_error(parsed_data):
     ):
         return "AUTH_ERROR"
 
-    # DATABASE_ERROR
     if any(
         k in haystack
         for k in [
@@ -66,7 +63,6 @@ def classify_error(parsed_data):
     ):
         return "DATABASE_ERROR"
 
-    # RUNTIME_ERROR
     if any(
         k in error_type_lower
         for k in [
