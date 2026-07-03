@@ -237,12 +237,12 @@ app.post("/analyze", async (req, res) => {
     return res.status(error.response.status || 500).json({
       error:
         error.response.data?.error?.message ||
-        "External service failed. Please try again.",
+        "External service failed. Please try again later.",
     });
   }
   if (error.code === "ECONNABORTED") {
     return res.status(504).json({
-      error: "Request timed out. Please try again.",
+      error: "Request timed out. Please try again later.",
     });
   }
     res.status(500).json({
